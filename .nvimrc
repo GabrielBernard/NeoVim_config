@@ -27,7 +27,7 @@ if 0 | endif
 
 if has('vim_starting')
     if &compatible
-      set nocompatible               " Be iMproved
+        set nocompatible               " Be iMproved
     endif
 endif
 "}}}
@@ -48,89 +48,99 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Add or remove your Bundles here:
 
 "   Syntax
-    NeoBundle 'wavded/vim-stylus'
-    NeoBundle 'tpope/vim-markdown'
-    NeoBundle 'scrooloose/syntastic'
-    NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tmux-plugins/vim-tmux'
 
 "   Colorscheme & Syntax Highlighting
-    NeoBundle 'flazz/vim-colorschemes'
-    NeoBundle 'mhartington/oceanic-next'
-    NeoBundle 'kien/rainbow_parentheses.vim'
-    NeoBundle 'chrisbra/Colorizer'
-    NeoBundle 'Raimondi/delimitMate'
-    
-    " Git helpers
-    NeoBundle 'tpope/vim-fugitive'
-    NeoBundle 'airblade/vim-gitgutter'
-    NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'mhartington/oceanic-next'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'chrisbra/Colorizer'
+NeoBundle 'Raimondi/delimitMate'
 
-    NeoBundle 'tpope/vim-vinegar'
+" Git helpers
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
-    " untils
-    NeoBundle 'scrooloose/nerdtree'
-    NeoBundle 'matze/vim-move'
-    NeoBundle 'editorconfig/editorconfig-vim'
-    NeoBundle 'scrooloose/nerdtree'
-    NeoBundle 'terryma/vim-multiple-cursors'
-    NeoBundle 'ctrlpvim/ctrlp.vim'
-    NeoBundle 'christoomey/vim-tmux-navigator'
-    NeoBundle 'tpope/vim-surround'
-    NeoBundle 'tomtom/tcomment_vim'
-    NeoBundle 'mattn/emmet-vim'
-    NeoBundle 'Chiel92/vim-autoformat'
-    NeoBundle 'Shougo/neocomplete.vim'
-    NeoBundle 'Quramy/tsuquyomi'
-    NeoBundle 'scrooloose/nerdtree'
-    NeoBundle 'SirVer/ultisnips'
-    NeoBundle 'Yggdroot/indentLine'
-    
-    " YouCompleteMe
-    NeoBundle 'Valloric/YouCompleteMe'
-    
-    " Taglist
-    NeoBundle 'vim-scripts/taglist.vim'
-    NeoBundle 'majutsushi/tagbar'
+NeoBundle 'tpope/vim-vinegar'
 
-    " Session Management
-    NeoBundle 'xolox/vim-misc'
-    NeoBundle 'xolox/vim-session'
+" untils
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'matze/vim-move'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'Chiel92/vim-autoformat'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Yggdroot/indentLine'
 
-    " CPP
-    NeoBundle 'octol/vim-cpp-enhanced-highlight'
+" YouCompleteMe
+NeoBundle 'Valloric/YouCompleteMe'
 
-    " Airline
-    NeoBundle 'vim-airline/vim-airline'
-    NeoBundle 'vim-airline/vim-airline-themes'
+" Java Completer
+NeoBundle 'artur-shaik/vim-javacomplete2'
+NeoBundle 'vim-scripts/javacomplete'   
+" Taglist
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 
-    NeoBundle 'rking/ag.vim'
-    NeoBundle 'mileszs/ack.vim'
-    " NeoBundle 'ashisha/image.vim'
-    NeoBundle 'Shougo/neosnippet'
-    NeoBundle 'Shougo/neosnippet-snippets'
-    NeoBundle 'matthewsimo/angular-vim-snippets'
+" Session Management
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
+
+" CPP
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+
+" Airline
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+
+NeoBundle 'rking/ag.vim'
+NeoBundle 'mileszs/ack.vim'
+" NeoBundle 'ashisha/image.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'matthewsimo/angular-vim-snippets'
 "   Icons
-    NeoBundle 'ryanoasis/vim-webdevicons'
-    NeoBundle 'guns/xterm-color-table.vim'
-    NeoBundle 'sjl/clam.vim'
-    NeoBundle 'vim-scripts/CSApprox'
-    NeoBundle 'fmoralesc/vim-tutor-mode'
+NeoBundle 'ryanoasis/vim-webdevicons'
+NeoBundle 'guns/xterm-color-table.vim'
+NeoBundle 'sjl/clam.vim'
+NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'fmoralesc/vim-tutor-mode'
+NeoBundle 'ryanoasis/vim-devicons'
 
-    "Gundo
-    NeoBundle 'sjl/gundo.vim' 
+"Gundo
+NeoBundle 'sjl/gundo.vim' 
 
 call neobundle#end()
 
- " Required:
+" Required:
 filetype plugin indent on
 
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " }}}
 
 " Vim Weird Config {{{
+
+"set guifont<FONT_NAME>:h<FONT_SIZE>
+
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+
+set encoding=utf8
 set number
 set backspace=2
 set mouse=a
@@ -210,7 +220,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
-
+let g:airline_powerline_fonts = 1
 au FileType tex let g:airline_theme='papercolor'
 
 " }}}
@@ -246,7 +256,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_w=1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_mode_map = {'passive_filetypes':['java']}
+"let g:syntastic_mode_map = {'passive_filetypes':['java']}
 
 au FileType cpp let g:syntastic_cpp_compiler = 'g++'
 au FileType cpp let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++' 
@@ -282,14 +292,6 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 " }}}
-
-" Session management {{{
-
-let g:session_directory="~/.nvim/sessions"
-let g:session_autoload="no"
-let g:session_autosave="no"
-
-"}}}
 
 " cpp-enhanced-highlight {{{
 
@@ -363,4 +365,53 @@ au Filetype cpp nnoremap <F5> :!./MyProgram<cr>
 
 "}}}
 
+" From MikesVimrc {{{
+"set guifont<FONT_NAME>:h<FONT_SIZE>
 
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+
+" Git gitgutter column colors
+call gitgutter#highlight#define_highlights()
+
+" Space to toggle folds.
+nnoremap <Space> za
+
+"NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('vim', 'green', 'none', '#00FF00', '#151515')
+call NERDTreeHighlightFile('java', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('cpp', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('log', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('txt', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('pdf', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('jpg', 'blue', 'none', '#00CCCC', '#151515')
+call NERDTreeHighlightFile('png', 'blue', 'none', '#00CCCC', '#151515')
+call NERDTreeHighlightFile('h', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('html', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('bib', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('tex', 'Red', 'none', '#FF0000', '#151515')
+call NERDTreeHighlightFile('lot', 'Red', 'none', '#FF0000', '#151515')
+call NERDTreeHighlightFile('zip', 'Magenta', 'none', '#ff00ff', '#151515')
+
+"TRLP & GREP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ --ignore lib
+    \ -g ""'
+let g:ctrlp_regexp = 1
+let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_switch_buffer = 0
+
+
+
+" }}}
