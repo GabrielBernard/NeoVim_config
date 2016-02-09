@@ -1,8 +1,11 @@
-init.vim
-bundle/
-init.vim@
 ./
 ../
 .DS_Store
 .init.vim-rplugin~
 .netrwhist
+init.vim
+bundle/
+init.vim@
+tmp/**
+sessions/**
+
