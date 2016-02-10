@@ -4,7 +4,7 @@ NeoVim_config
 This is a Mac OS X nvimrc file with a lot of customization.
 
 I'm trying to improve it to be a very clear and very usefull nvimrc so that in case
-something happen, I always have a backyp file to quickly setup a new nvim.
+something happen, I always have a backup file to quickly setup a new nvim.
 
 This nvimrc uses ryanoasis' nerd-fonts. It is necessary to download and install some of those fonts
 to have access to the icons in airline, NEERDTree, ctrl-p, etc.
