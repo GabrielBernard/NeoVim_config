@@ -52,6 +52,7 @@ NeoBundle 'wavded/vim-stylus'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tmux-plugins/vim-tmux'
+"NeoBundle 'jcf/vim-latex'
 
 "   Colorscheme & Syntax Highlighting
 NeoBundle 'flazz/vim-colorschemes'
@@ -108,10 +109,15 @@ NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'rking/ag.vim'
 NeoBundle 'mileszs/ack.vim'
+
 " NeoBundle 'ashisha/image.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'matthewsimo/angular-vim-snippets'
+
+"Gundo
+NeoBundle 'sjl/gundo.vim' 
+
 "   Icons
 NeoBundle 'ryanoasis/vim-webdevicons'
 NeoBundle 'guns/xterm-color-table.vim'
@@ -119,9 +125,6 @@ NeoBundle 'sjl/clam.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'fmoralesc/vim-tutor-mode'
 NeoBundle 'ryanoasis/vim-devicons'
-
-"Gundo
-NeoBundle 'sjl/gundo.vim' 
 
 call neobundle#end()
 
@@ -199,8 +202,8 @@ set background=dark
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
 
-au FileType tex set background=light
-au FileType tex colorscheme PaperColor
+"au FileType tex set background=light
+"au FileType tex colorscheme PaperColor
 
 " }}}
 
@@ -211,8 +214,6 @@ let g:indentLine_enabled = 1
 
 " Airline {{{
 
-"let g:airline_theme='solarized'
-
 if !exists("g:airline_symbols")
     let g:airline_symbols = {}
 endif
@@ -221,7 +222,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
 let g:airline_powerline_fonts = 1
-au FileType tex let g:airline_theme='papercolor'
+
+"au FileType tex let g:airline_theme='papercolor'
 
 " }}}
 
@@ -293,13 +295,6 @@ let g:cpp_experimental_template_highlight = 1
 
 " }}}
 
-" cpp-enhanced-highlight {{{
-
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-
-" }}}
-
 " spell check {{{
 
 autocmd BufEnter *.tex set spell spelllang=fr
@@ -339,7 +334,7 @@ nnoremap <C-H> <C-W><C-H>
 " new tab
 
 "vimrc racourcis
-nnoremap <F3> :tabnew ~/.vimrc<cr> :vsplit ~/.vim/config/settings.vim<cr>
+nnoremap <F3> :tabnew ~/.nvim/.nvimrc<cr>
 
 "let mapleader=","       " leader is comma
 
@@ -412,6 +407,87 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_switch_buffer = 0
 
+" }}}
+
+" Vim-Latex Config {{{
+
+
+"Fichier de configuration vim-latex
+"let g:latex_enable = 1
+"let g:latex_complete_enabled = 1
+"let g:latex_indent_enabled = 1
+"let g:latex_mappings_enabled = 1
+
+" Configure listings environment
+"syn region texZone start="\\begin{lstlisting}" end="\\end{lstlisting}\|%stopzone\>"
+"syn region texZone  start="\\lstinputlisting" end="{\s*[a-zA-Z/.0-9_^]\+\s*}"
+"syn match texInputFile "\\lstinline\s*\(\[.*\]\)\={.\{-}}" contains=texStatement,texInputCurlies,texInputFileOpt
+
+" Fichier de configuration latex-suite
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+
+"Alt-keys
+"set winaltkeys=no
+
+"set iskeyword+=:,-,_
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+"let g:tex_flavor='pdflatex'
+"let g:latex_latexmk_options="-pdf -pvc -pdflatex='pdflatex -file-line-error -synctex=1'"
+"let g:TTarget='pdf'
+"let g:Tex_CompileRule_pdf = 'pdflatex $*.pdf'
+
+"set complete-=k complete+=k
+"set complete+=kspell
+"set complete+=]
+"
+"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+"let g:SuperTabLongestEnhanced = 1
+"
+"autocmd FileType tex
+"            \ if &omnifunc != '' |
+"            \   call SuperTabChain(&omnifunc, "<c-n>") |
+"            \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+"            \ endif
+"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+"            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+"            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"
+"inoremap <expr> <tab> pumvisible() ? '<tab>' :
+"            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+"===== 
+" For custom mappings 
+"imap <D-p> <Plug>Tex_InsertItemOnThisLine
+
+"imap <D-b> <Plug>Tex_MathBF
+"imap <D-c> <Plug>Tex_MathCal
+"imap <D-l> <Plug>Tex_LeftRight
+"imap <D-i> <Plug>Tex_InsertItemOnThisLine 
+"imap <D-u> <Plug>Tex_InsertItemOnThisLine 
+"imap <D-y> <Plug>Tex_InsertItemOnNextLine 
+
+"sertItemOnNextLine 
+
+"imap <C-b> <Plug>Tex_MathBF
+"imap <C-c> <Plug>Tex_MathCal 
+"imap <C-l> <Plug>Tex_LeftRight 
+"imap <C-u> <Plug>Tex_InsertItemOnThisLine 
+"imap <C-y> <Plug>Tex_InsertItemOnNextLine 
+
+"imap <A-u> <Plug>Tex_InsertItemOnThisLine 
+"imap <A-y> <Plug>Tex_InsertItemOnNextLine 
+" 
+"======
+
 
 
 " }}}
+
