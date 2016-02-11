@@ -40,7 +40,12 @@ This is **THE** auto completion tool. See the github for more information, but i
 
 <https://github.com/Shougo/deoplete.nvim>
 
+Spell
+------
+There is a bug in NeoVim spell. You need to activate spell manually by entering the command :set spell so that NeoVim sees that a spell folder with dictionaries exist. Once that is done once, you can activate the auto setting of spell check in any language for any type of file.
 
+True-color
+-----------
 Lastly, my nvim is setup to use true-colors, so a true-color capable terminal must be use.
 Iterm2-nightly is a very good terminal that have true-colors enable and I recommend to use it.
 
