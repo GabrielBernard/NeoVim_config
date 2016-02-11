@@ -237,6 +237,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
+let g:airline#extensions#whitespace#enabled=0
 let g:airline_powerline_fonts = 1
 
 "au FileType tex let g:airline_theme='papercolor'
@@ -409,8 +410,11 @@ let g:cpp_experimental_template_highlight = 1
 
 " spell check {{{
 
-autocmd BufEnter *.tex set spell spelllang=fr
+au BufEnter *.tex set spell spelllang=fr
 au BufEnter *.txt set spell spelllang=fr 
+au BufEnter *.md set spell spelllang=en
+
+hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
 
 " }}}
 
