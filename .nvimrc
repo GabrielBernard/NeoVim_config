@@ -63,6 +63,7 @@ NeoBundle 'Raimondi/delimitMate'
 
 " Git helpers
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'jreybert/vimagit'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
@@ -74,27 +75,35 @@ NeoBundle 'matze/vim-move'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'christoomey/vim-tmux-navigator'
+"NeoBundle 'ctrlpvim/ctrlp.vim'
+"NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Chiel92/vim-autoformat'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Quramy/tsuquyomi'
+"NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'Quramy/tsuquyomi'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'gorodinskiy/vim-coloresque'
 
 " YouCompleteMe
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 
 " Java Completer
-NeoBundle 'artur-shaik/vim-javacomplete2'
-NeoBundle 'vim-scripts/javacomplete'   
+"NeoBundle 'artur-shaik/vim-javacomplete2'
+"NeoBundle 'vim-scripts/javacomplete'   
+
 " Taglist
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'vim-scripts/taglist.vim'
+"NeoBundle 'majutsushi/tagbar'
+
+" Other Completion tool
+NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle 'Shougo/neco-vim'
+NeoBundle 'Shougo/neoinclude.vim'
+
 
 " Session Management
 NeoBundle 'xolox/vim-misc'
@@ -107,13 +116,13 @@ NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
-NeoBundle 'rking/ag.vim'
-NeoBundle 'mileszs/ack.vim'
+"NeoBundle 'rking/ag.vim'
+"NeoBundle 'mileszs/ack.vim'
 
-" NeoBundle 'ashisha/image.vim'
+NeoBundle 'ashisha/image.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'matthewsimo/angular-vim-snippets'
+"NeoBundle 'matthewsimo/angular-vim-snippets'
 
 "Gundo
 NeoBundle 'sjl/gundo.vim' 
@@ -126,6 +135,9 @@ NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'fmoralesc/vim-tutor-mode'
 NeoBundle 'ryanoasis/vim-devicons'
 
+" FZF
+NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'} ", 'do': 'yes \| ./install --all' }
+NeoBundle 'junegunn/fzf.vim'
 call neobundle#end()
 
 " Required:
@@ -143,7 +155,7 @@ NeoBundleCheck
 
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
-set encoding=utf8
+"set encoding=utf-8
 set number
 set backspace=2
 set mouse=a
@@ -193,14 +205,18 @@ set wrapmargin=0
 
 " }}}
 
+" Appearance {{{
+
 " Colorscheme {{{
 
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "colorscheme candyman
 set background=dark
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
+hi CursorLineNR guifg=#ffffff
 
 "au FileType tex set background=light
 "au FileType tex colorscheme PaperColor
@@ -227,6 +243,8 @@ let g:airline_powerline_fonts = 1
 
 " }}}
 
+" }}}
+
 " Gundo + Backup {{{
 
 set undodir=~/.nvim/tmp/undo//
@@ -246,6 +264,8 @@ nnoremap <F1> :GundoToggle<CR>
 
 " }}}
 
+" Completion and syntax {{{
+
 " Syntastic {{{
 
 set statusline+=%#warningmsg#
@@ -263,22 +283,114 @@ let g:syntastic_check_on_wq = 0
 au FileType cpp let g:syntastic_cpp_compiler = 'g++'
 au FileType cpp let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++' 
 
+au FileType java let g:syntastic_quiet_messages = {"level": "warnings"}
+
 " }}}
+
+" Deoplete {{{
+
+let g:deoplete#enable_at_startup = 1
+
+" }}}
+
+" FZF {{{
+set rtp+=/usr/local/opt/fzf
+let g:fzf_command_prefix = 'Fzf'
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+" - window (nvim only)
+let g:fzf_layout = { 'down': '~40%' }
+
+" For Commits and BCommits to customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" }}}
+
+" Obsolete {{{
 
 " YouCompleteMe{{{
 
-nnoremap ,C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
+"------------------------------------
+"OBSOLETE SINCE DEOPLETE!!!!!!!!!!!
+"-------------------------------------
 
-let g:ycm_global_ycm_extra_conf = "~/.nvim/config/.ycm_extra_conf.py"
+"nnoremap ,C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
 
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+"let g:ycm_global_ycm_extra_conf = "~/.nvim/config/.ycm_extra_conf.py"
 
-let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
 
-let g:ycm_show_diagnostics_ui = 0
+"let g:ycm_collect_identifiers_from_tags_files = 1
+
+"let g:ycm_show_diagnostics_ui = 0
 "let g:ycm_retister_as_syntastic_checker = 0
 " }}}
+
+ " Java Completion {{{
+
+"-------------------------------------
+"OBSOLETE SINCE DEOPLETE!!!!!!!!!!!
+"-------------------------------------
+
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"let g:JavaComplete_ClosingBrace = 1
+"g:JavaComplete_SourcesPath
+
+"au FileType java nmap <F4> <Plug>(JavaComplete-Imports-Add)
+"au FileType java imap <F4> <Plug>(JavaComplete-Imports-Add)
+
+"au FileType java nmap <F5> <Plug>(JavaComplete-Imports-AddMissing)
+
+"au FileType java imap <F5> <Plug>(JavaComplete-Imports-AddMissing)
+
+
+"au FileType java nmap <F6> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+"au FileType java imap <F6> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+" }}}
+
+" }}}
+
+" }}}
+
+" Autres {{{
 
 " Session management {{{
 
@@ -303,12 +415,16 @@ au BufEnter *.txt set spell spelllang=fr
 " }}}
 
 " Python {{{
+
 let g:python_host_prog = '/usr/bin/python'
 let g:loaded_python_profider = 0 " 1 to disable python
+
+let g:python3_host_prog = "/usr/local/bin/python3" 
 
 " }}}
 
 "Remapping {{{
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -325,11 +441,11 @@ nnoremap E $
 nnoremap gV `[v`]
 
 " move between windows
-nnoremap <C-j> <C-w>j
+"nnoremap <C-j> <C-w>j
+nnoremap <C-G> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " new tab
 
@@ -361,9 +477,10 @@ au Filetype cpp nnoremap <F5> :!./MyProgram<cr>
 "}}}
 
 " From MikesVimrc {{{
-"set guifont<FONT_NAME>:h<FONT_SIZE>
 
-"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+set guifont<FONT_NAME>:h<FONT_SIZE>
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
 " Git gitgutter column colors
 call gitgutter#highlight#define_highlights()
@@ -392,20 +509,28 @@ call NERDTreeHighlightFile('tex', 'Red', 'none', '#FF0000', '#151515')
 call NERDTreeHighlightFile('lot', 'Red', 'none', '#FF0000', '#151515')
 call NERDTreeHighlightFile('zip', 'Magenta', 'none', '#ff00ff', '#151515')
 
-"TRLP & GREP
+" Cursor Position & CTRLP & GREP
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
-    \ --ignore .git
-    \ --ignore .svn
-    \ --ignore .hg
-    \ --ignore .DS_Store
-    \ --ignore "**/*.pyc"
-    \ --ignore lib
-    \ -g ""'
-let g:ctrlp_regexp = 1
-let g:ctrlp_use_caching = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
+"     \ --ignore .git
+"     \ --ignore .svn
+"     \ --ignore .hg
+"     \ --ignore .DS_Store
+"     \ --ignore "**/*.pyc"
+"     \ --ignore lib
+"     \ -g ""'
+" let g:ctrlp_regexp = 1
+" let g:ctrlp_use_caching = 0
+" let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_switch_buffer = 0
+
+" Remember cursor position between vim sessions
+  autocmd BufReadPost *
+              \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+              \   exe "normal! g'\"" |
+              \ endif
+              " center buffer around cursor when opening files
+  autocmd BufRead * normal zz
 
 " }}}
 
@@ -488,6 +613,8 @@ let g:ctrlp_switch_buffer = 0
 "======
 
 
+
+" }}}
 
 " }}}
 
