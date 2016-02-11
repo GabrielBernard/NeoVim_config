@@ -42,7 +42,7 @@ This is **THE** auto completion tool. See the github for more information, but i
 
 Spell
 ------
-There is a bug in NeoVim spell. You need to activate spell manually by entering the command :set spell so that NeoVim sees that a spell folder with dictionaries exist. Once that is done once, you can activate the auto setting of spell check in any language for any type of file.
+There is a bug in NeoVim spell. You need to activate spell manually by entering the command :set spell so that NeoVim sees that a spell folder with dictionaries exist. That only needs to be done once. After that, it is possible activate the auto setting of spell check in any language for any type of file.
 
 True-color
 -----------
