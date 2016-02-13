@@ -51,7 +51,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'wavded/vim-stylus'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tmux-plugins/vim-tmux'
 "NeoBundle 'jcf/vim-latex'
 
 "   Colorscheme & Syntax Highlighting
@@ -66,7 +65,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'jreybert/vimagit'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-
 NeoBundle 'tpope/vim-vinegar'
 
 " untils
@@ -74,36 +72,36 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'matze/vim-move'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle 'ctrlpvim/ctrlp.vim'
-"NeoBundle 'christoomey/vim-tmux-navigator'
+
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Chiel92/vim-autoformat'
-"NeoBundle 'Shougo/neocomplete.vim'
 "NeoBundle 'Quramy/tsuquyomi'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'gorodinskiy/vim-coloresque'
 
-" YouCompleteMe
-"NeoBundle 'Valloric/YouCompleteMe'
-
-" Java Completer
-"NeoBundle 'artur-shaik/vim-javacomplete2'
-"NeoBundle 'vim-scripts/javacomplete'   
-
 " Taglist
-"NeoBundle 'vim-scripts/taglist.vim'
-"NeoBundle 'majutsushi/tagbar'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'majutsushi/tagbar'
+
+" FZF
+NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'}
+NeoBundle 'junegunn/fzf.vim'
 
 " Other Completion tool
 NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'Shougo/neco-vim'
 NeoBundle 'Shougo/neoinclude.vim'
-
+NeoBundle 'Shougo/echodoc', '', 'default'
+call neobundle#config('echodoc', {
+      \ 'lazy' : 1,
+      \ 'autoload' : {
+      \ 'insert' : 1,
+      \ }})
+NeoBundle 'Shougo/context_filetype.vim'
 
 " Session Management
 NeoBundle 'xolox/vim-misc'
@@ -116,13 +114,12 @@ NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
-"NeoBundle 'rking/ag.vim'
+NeoBundle 'rking/ag.vim'
 "NeoBundle 'mileszs/ack.vim'
 
 NeoBundle 'ashisha/image.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'matthewsimo/angular-vim-snippets'
 
 "Gundo
 NeoBundle 'sjl/gundo.vim' 
@@ -135,9 +132,6 @@ NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'fmoralesc/vim-tutor-mode'
 NeoBundle 'ryanoasis/vim-devicons'
 
-" FZF
-NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'} ", 'do': 'yes \| ./install --all' }
-NeoBundle 'junegunn/fzf.vim'
 call neobundle#end()
 
 " Required:
@@ -288,12 +282,6 @@ au FileType java let g:syntastic_quiet_messages = {"level": "warnings"}
 
 " }}}
 
-" Deoplete {{{
-
-let g:deoplete#enable_at_startup = 1
-
-" }}}
-
 " FZF {{{
 set rtp+=/usr/local/opt/fzf
 let g:fzf_command_prefix = 'Fzf'
@@ -342,6 +330,14 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " }}}
 
+" Deoplete {{{
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+
+" }}}
+
 " Obsolete {{{
 
 " YouCompleteMe{{{
@@ -350,17 +346,17 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 "OBSOLETE SINCE DEOPLETE!!!!!!!!!!!
 "-------------------------------------
 
-"nnoremap ,C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
-
-"let g:ycm_global_ycm_extra_conf = "~/.nvim/config/.ycm_extra_conf.py"
-
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
-
-"let g:ycm_collect_identifiers_from_tags_files = 1
-
-"let g:ycm_show_diagnostics_ui = 0
-"let g:ycm_retister_as_syntastic_checker = 0
+" nnoremap ,C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
+"
+" let g:ycm_global_ycm_extra_conf = "~/.nvim/config/.ycm_extra_conf.py"
+"
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+"
+" let g:ycm_collect_identifiers_from_tags_files = 1
+"
+" let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_retister_as_syntastic_checker = 0
 " }}}
 
  " Java Completion {{{
@@ -480,7 +476,7 @@ au Filetype cpp nnoremap <F5> :!./MyProgram<cr>
 
 "}}}
 
-" From MikesVimrc {{{
+" From Fonts + NERDTree highlighting + cursor in buffers {{{
 
 set guifont<FONT_NAME>:h<FONT_SIZE>
 
@@ -515,18 +511,18 @@ call NERDTreeHighlightFile('zip', 'Magenta', 'none', '#ff00ff', '#151515')
 
 " Cursor Position & CTRLP & GREP
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
-"     \ --ignore .git
-"     \ --ignore .svn
-"     \ --ignore .hg
-"     \ --ignore .DS_Store
-"     \ --ignore "**/*.pyc"
-"     \ --ignore lib
-"     \ -g ""'
-" let g:ctrlp_regexp = 1
-" let g:ctrlp_use_caching = 0
-" let g:ctrlp_working_path_mode = 0
-" let g:ctrlp_switch_buffer = 0
+let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ --ignore lib
+    \ -g ""'
+let g:ctrlp_regexp = 1
+let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_switch_buffer = 0
 
 " Remember cursor position between vim sessions
   autocmd BufReadPost *
