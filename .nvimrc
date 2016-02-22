@@ -39,7 +39,7 @@ set runtimepath+=~/.config/nvim/bundle/neobundle.vim
 "set runtimepath+=~/.nvim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/Gabriel/.config/nvim/bundle'))
+call neobundle#begin(expand('~/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
