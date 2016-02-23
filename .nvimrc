@@ -103,6 +103,9 @@ call neobundle#config('echodoc', {
       \ }})
 NeoBundle 'Shougo/context_filetype.vim'
 
+" C/C++ completion
+NeoBundle 'Rip-Rip/clang_complete'
+
 " Session Management
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
@@ -242,9 +245,9 @@ let g:airline_powerline_fonts = 1
 
 " Gundo + Backup {{{
 
-set undodir=~/.nvim/tmp/undo//
-set backupdir=~/.nvim/tmp/backup//
-set directory=~/.nvim/tmp/swap//
+set undodir=~/.config/nvim/tmp/undo//
+set backupdir=~/.config/nvim/tmp/backup//
+set directory=~/.config/nvim/tmp/swap//
 set backupskip=/tmp/*,/private/tmp/*"
 set backup
 set writebackup
@@ -334,7 +337,19 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
+
 let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+"let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
+
+" }}}
+
+" Clang-complete {{{
+
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_omnicppcomplete_compliance = 0
+let g:clang_make_default_keymappings = 0
+"let g:clang_use_library = 1
 
 " }}}
 
@@ -391,7 +406,7 @@ let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 " Session management {{{
 
-let g:session_directory="~/.nvim/sessions"
+let g:session_directory="~/.config/nvim/sessions"
 let g:session_autoload="no"
 let g:session_autosave="no"
 
@@ -480,7 +495,7 @@ au Filetype cpp nnoremap <F5> :!./MyProgram<cr>
 
 set guifont<FONT_NAME>:h<FONT_SIZE>
 
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h11
 
 " Git gitgutter column colors
 call gitgutter#highlight#define_highlights()
