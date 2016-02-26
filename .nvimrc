@@ -89,7 +89,6 @@ NeoBundle 'majutsushi/tagbar'
 
 " FZF
 NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'}
-NeoBundle 'junegunn/fzf.vim'
 
 " Other Completion tool
 NeoBundle 'Shougo/deoplete.nvim'
@@ -349,6 +348,7 @@ let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_omnicppcomplete_compliance = 0
 let g:clang_make_default_keymappings = 0
+let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib"
 "let g:clang_use_library = 1
 
 " }}}
@@ -423,7 +423,7 @@ let g:cpp_experimental_template_highlight = 1
 
 au BufEnter *.tex set spell spelllang=fr
 au BufEnter *.txt set spell spelllang=fr 
-au BufEnter *.md set spell spelllang=en
+au BufEnter *.md set spell spelllang=fr
 
 hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
 
