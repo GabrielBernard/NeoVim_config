@@ -73,66 +73,66 @@ NeoBundle 'matze/vim-move'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'scrooloose/nerdtree'
 
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tomtom/tcomment_vim'
+ NeoBundle 'tpope/vim-surround'
+ NeoBundle 'tomtom/tcomment_vim'
 "NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Chiel92/vim-autoformat'
+ NeoBundle 'Chiel92/vim-autoformat'
 "NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'gorodinskiy/vim-coloresque'
+ NeoBundle 'scrooloose/nerdtree'
+ NeoBundle 'SirVer/ultisnips'
+ NeoBundle 'Yggdroot/indentLine'
+ NeoBundle 'gorodinskiy/vim-coloresque'
 
 " Taglist
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'majutsushi/tagbar'
+ NeoBundle 'vim-scripts/taglist.vim'
+ NeoBundle 'majutsushi/tagbar'
 
 " FZF
-NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'}
+ NeoBundle 'junegunn/fzf.vim', { 'dir': '/usr/local/opt/fzf'}
 
 " Other Completion tool
-NeoBundle 'Shougo/deoplete.nvim'
-NeoBundle 'Shougo/neco-vim'
-NeoBundle 'Shougo/neoinclude.vim'
-NeoBundle 'Shougo/echodoc', '', 'default'
-call neobundle#config('echodoc', {
-      \ 'lazy' : 1,
-      \ 'autoload' : {
-      \ 'insert' : 1,
-      \ }})
-NeoBundle 'Shougo/context_filetype.vim'
+ NeoBundle 'Shougo/deoplete.nvim'
+ NeoBundle 'Shougo/neco-vim'
+ NeoBundle 'Shougo/neoinclude.vim'
+ NeoBundle 'Shougo/echodoc', '', 'default'
+ call neobundle#config('echodoc', {
+       \ 'lazy' : 1,
+       \ 'autoload' : {
+       \ 'insert' : 1,
+       \ }})
+ NeoBundle 'Shougo/context_filetype.vim'
 
 " C/C++ completion
 NeoBundle 'Rip-Rip/clang_complete'
 
 " Session Management
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
+ NeoBundle 'xolox/vim-misc'
+ NeoBundle 'xolox/vim-session'
 
 " CPP
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
+ NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " Airline
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+ NeoBundle 'vim-airline/vim-airline'
+ NeoBundle 'vim-airline/vim-airline-themes'
 
-NeoBundle 'rking/ag.vim'
-"NeoBundle 'mileszs/ack.vim'
+ NeoBundle 'rking/ag.vim'
+ "NeoBundle 'mileszs/ack.vim'
 
-NeoBundle 'ashisha/image.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+ "NeoBundle 'ashisha/image.vim'
+ NeoBundle 'Shougo/neosnippet'
+ NeoBundle 'Shougo/neosnippet-snippets'
 
-"Gundo
-NeoBundle 'sjl/gundo.vim' 
+ "Gundo
+ NeoBundle 'sjl/gundo.vim' 
 
-"   Icons
-NeoBundle 'ryanoasis/vim-webdevicons'
-NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'sjl/clam.vim'
-NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'fmoralesc/vim-tutor-mode'
-NeoBundle 'ryanoasis/vim-devicons'
+ "   Icons
+ NeoBundle 'ryanoasis/vim-webdevicons'
+ NeoBundle 'guns/xterm-color-table.vim'
+ NeoBundle 'sjl/clam.vim'
+ NeoBundle 'vim-scripts/CSApprox'
+ NeoBundle 'fmoralesc/vim-tutor-mode'
+ NeoBundle 'ryanoasis/vim-devicons'
 
 call neobundle#end()
 
@@ -421,11 +421,11 @@ let g:cpp_experimental_template_highlight = 1
 
 " spell check {{{
 
-au BufEnter *.tex set spell spelllang=fr
-au BufEnter *.txt set spell spelllang=fr 
-au BufEnter *.md set spell spelllang=fr
+"au BufEnter *.tex set spell spelllang=fr
+"au BufEnter *.txt set spell spelllang=fr 
+"au BufEnter *.md set spell spelllang=fr
 
-hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
+"hi SpellBad guibg=#ff2929 guifg=#ffffff" ctermbg=224
 
 " }}}
 
@@ -511,14 +511,16 @@ endfunction
 
 call NERDTreeHighlightFile('vim', 'green', 'none', '#00FF00', '#151515')
 call NERDTreeHighlightFile('java', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('h', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('cpp', 'blue', 'none', '#3366FF', '#151515')
 call NERDTreeHighlightFile('log', 'white', 'none', '#FFFFFF', '#151515')
 call NERDTreeHighlightFile('txt', 'white', 'none', '#FFFFFF', '#151515')
 call NERDTreeHighlightFile('pdf', 'white', 'none', '#FFFFFF', '#151515')
 call NERDTreeHighlightFile('jpg', 'blue', 'none', '#00CCCC', '#151515')
+call NERDTreeHighlightFile('JPG', 'blue', 'none', '#00CCCC', '#151515')
 call NERDTreeHighlightFile('png', 'blue', 'none', '#00CCCC', '#151515')
-call NERDTreeHighlightFile('h', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('html', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('PNG', 'blue', 'none', '#00CCCC', '#151515')
 call NERDTreeHighlightFile('bib', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('tex', 'Red', 'none', '#FF0000', '#151515')
 call NERDTreeHighlightFile('lot', 'Red', 'none', '#FF0000', '#151515')
