@@ -205,17 +205,22 @@ set wrapmargin=0
 
 " Colorscheme {{{
 
-syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+   set termguicolors
+endif
+
+syntax enable
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "colorscheme candyman
-set background=dark
+"set background=dark
 colorscheme OceanicNext
+set background=dark
 let g:airline_theme='oceanicnext'
 hi CursorLineNR guifg=#ffffff
 
-"au FileType tex set background=light
-"au FileType tex colorscheme PaperColor
+au FileType tex set background=dark
+au FileType tex colorscheme PaperColor
 
 " }}}
 
