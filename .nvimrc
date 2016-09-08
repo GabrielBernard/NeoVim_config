@@ -47,31 +47,31 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 
-"   Syntax
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'jcf/vim-latex'
+ "   Syntax
+ NeoBundle 'wavded/vim-stylus'
+ NeoBundle 'tpope/vim-markdown'
+ NeoBundle 'scrooloose/syntastic'
+ "NeoBundle 'jcf/vim-latex'
 
-"   Colorscheme & Syntax Highlighting
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'mhartington/oceanic-next'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'chrisbra/Colorizer'
-NeoBundle 'Raimondi/delimitMate'
+ "   Colorscheme & Syntax Highlighting
+ NeoBundle 'flazz/vim-colorschemes'
+ NeoBundle 'mhartington/oceanic-next'
+ NeoBundle 'kien/rainbow_parentheses.vim'
+ NeoBundle 'chrisbra/Colorizer'
+ NeoBundle 'Raimondi/delimitMate'
 
-" Git helpers
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'jreybert/vimagit'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'tpope/vim-vinegar'
+ " Git helpers
+ NeoBundle 'tpope/vim-fugitive'
+ NeoBundle 'jreybert/vimagit'
+ NeoBundle 'airblade/vim-gitgutter'
+ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+ NeoBundle 'tpope/vim-vinegar'
 
-" untils
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'matze/vim-move'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'scrooloose/nerdtree'
+ " untils
+ NeoBundle 'scrooloose/nerdtree'
+ NeoBundle 'matze/vim-move'
+ NeoBundle 'editorconfig/editorconfig-vim'
+ NeoBundle 'scrooloose/nerdtree'
 
  NeoBundle 'tpope/vim-surround'
  NeoBundle 'tomtom/tcomment_vim'
@@ -102,8 +102,8 @@ NeoBundle 'scrooloose/nerdtree'
        \ }})
  NeoBundle 'Shougo/context_filetype.vim'
 
-" C/C++ completion
-NeoBundle 'Rip-Rip/clang_complete'
+ " C/C++ completion
+ NeoBundle 'Rip-Rip/clang_complete'
 
 " Session Management
  NeoBundle 'xolox/vim-misc'
@@ -213,14 +213,19 @@ endif
 syntax enable
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "colorscheme candyman
-"set background=dark
 colorscheme OceanicNext
+"colorscheme PaperColor
 set background=dark
 let g:airline_theme='oceanicnext'
+"let g:airline_theme='molokai'
 hi CursorLineNR guifg=#ffffff
 
 au FileType tex set background=dark
 au FileType tex colorscheme PaperColor
+au FileType tex let g:airline_theme='molokai'
+
+au FileType cpp colorscheme PaperColor
+au FileType cpp let g:airline_theme='molokai'
 
 " }}}
 
@@ -240,8 +245,6 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
 let g:airline#extensions#whitespace#enabled=0
 let g:airline_powerline_fonts = 1
-
-"au FileType tex let g:airline_theme='papercolor'
 
 " }}}
 
