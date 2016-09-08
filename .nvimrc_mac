@@ -220,13 +220,6 @@ let g:airline_theme='oceanicnext'
 "let g:airline_theme='molokai'
 hi CursorLineNR guifg=#ffffff
 
-au FileType tex set background=dark
-au FileType tex colorscheme PaperColor
-au FileType tex let g:airline_theme='molokai'
-
-au FileType cpp colorscheme PaperColor
-au FileType cpp let g:airline_theme='molokai'
-
 " }}}
 
 " Indent Line {{{
@@ -473,7 +466,7 @@ nnoremap <C-L> <C-W><C-L>
 " new tab
 
 "vimrc racourcis
-nnoremap <F3> :tabnew ~/.nvim/.nvimrc<cr>
+nnoremap <F3> :tabnew ~/.nvimrc<cr>
 
 "let mapleader=","       " leader is comma
 
