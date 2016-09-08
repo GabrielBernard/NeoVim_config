@@ -466,7 +466,7 @@ nnoremap <C-L> <C-W><C-L>
 " new tab
 
 "vimrc racourcis
-nnoremap <F3> :tabnew ~/.nvimrc<cr>
+nnoremap <F3> :tabnew ~/.config/nvim/init.vim<cr>
 
 "let mapleader=","       " leader is comma
 
