@@ -51,6 +51,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
  NeoBundle 'wavded/vim-stylus'
  NeoBundle 'tpope/vim-markdown'
  NeoBundle 'scrooloose/syntastic'
+ NeoBundle 'jalvesaq/Nvim-R'
+ NeoBundle 'jorgengz/minivimc'
+ "NeoBundle 'vale1410/vim-minizinc'
  "NeoBundle 'jcf/vim-latex'
 
  "   Colorscheme & Syntax Highlighting
